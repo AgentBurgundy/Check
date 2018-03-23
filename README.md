@@ -25,7 +25,7 @@ Assert.That(Check.IsNotNull(myString).MeetsCondition(s => s.Contains("World")));
 # How To Use
 Find the NuGet package in the PackageManager or install via console using.
 
-`Install-Package Check.NET`
+`Install-Package CheckNET.Core`
 
 # How To Contribute
 All issues are up for grabs, I plan to update this package to the best of my ability.
