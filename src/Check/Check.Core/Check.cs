@@ -8,7 +8,7 @@ namespace CheckNET.Core
 {
     public class Check<T>
     {
-        public bool Result { get; internal set; }
+        public bool Result { get; internal set; } = true;
         public T Value { get; internal set; }
 
         internal Check(T value)
@@ -32,21 +32,25 @@ namespace CheckNET.Core
 
         public static Check<T?> IsNull<T>(this Check<T?> check) where T : struct
         {
-            check.Result = check.Value.Equals(null);
+            if (check.Result != false)
+                check.Result = check.Value.Equals(null);
+
             return check;
         }
 
         public static Check<T> IsNull<T>(this Check<T> check) where T : class
         {
-            try
+            if (check.Result != false)
             {
-                check.Result = check.Value.Equals(null);
+                try
+                {
+                    check.Result = check.Value.Equals(null);
+                }
+                catch (NullReferenceException ex)
+                {
+                    check.Result = true;
+                }
             }
-            catch (NullReferenceException ex)
-            {
-                check.Result = true;
-            }
-            
             return check;
         }
 
@@ -61,19 +65,24 @@ namespace CheckNET.Core
 
         public static Check<T?> IsNotNull<T>(this Check<T?> check) where T : struct
         {
-            check.Result = !check.Value.Equals(null);
+            if (check.Result != false)
+                check.Result = !check.Value.Equals(null);
+
             return check;
         }
 
         public static Check<T> IsNotNull<T>(this Check<T> check) where T : class
         {
-            try
+            if (check.Result != false)
             {
-                check.Result = !check.Value.Equals(null);
-            }
-            catch (NullReferenceException ex)
-            {
-                check.Result = false;
+                try
+                {
+                    check.Result = !check.Value.Equals(null);
+                }
+                catch (NullReferenceException ex)
+                {
+                    check.Result = false;
+                }
             }
 
             return check;
@@ -89,22 +98,27 @@ namespace CheckNET.Core
 
         public static Check<T?> IsEqual<T>(this Check<T?> check, T? equality) where T : struct
         {
-            check.Result = check.Value.Equals(equality);
+            if (check.Result != false)
+                check.Result = check.Value.Equals(equality);
+
             return check;
         }
 
         public static Check<T> IsEqual<T>(this Check<T> check, T equality) where T : class
         {
-            try
+            if (check.Result != false)
             {
-                check.Result = check.Value.Equals(equality);
-            }
-            catch (NullReferenceException ex)
-            {
-                if (equality == null)
-                    check.Result = true;
-                else
-                    check.Result = false;
+                try
+                {
+                    check.Result = check.Value.Equals(equality);
+                }
+                catch (NullReferenceException ex)
+                {
+                    if (equality == null)
+                        check.Result = true;
+                    else
+                        check.Result = false;
+                }
             }
 
             return check;
@@ -120,22 +134,27 @@ namespace CheckNET.Core
 
         public static Check<T?> IsNotEqual<T>(this Check<T?> check, T? equality) where T : struct
         {
-            check.Result = !check.Value.Equals(equality);
+            if (check.Result != false)
+                check.Result = !check.Value.Equals(equality);
+
             return check;
         }
 
         public static Check<T> IsNotEqual<T>(this Check<T> check, T equality) where T : class
         {
-            try
+            if (check.Result != false)
             {
-                check.Result = !check.Value.Equals(equality);
-            }
-            catch (NullReferenceException ex)
-            {
-                if (equality == null)
-                    check.Result = false;
-                else
-                    check.Result = true;
+                try
+                {
+                    check.Result = !check.Value.Equals(equality);
+                }
+                catch (NullReferenceException ex)
+                {
+                    if (equality == null)
+                        check.Result = false;
+                    else
+                        check.Result = true;
+                }
             }
 
             return check;
@@ -151,22 +170,27 @@ namespace CheckNET.Core
 
         public static Check<T?> MeetsCondition<T>(this Check<T?> check, Func<T?, bool> condition) where T : struct
         {
-            check.Result = check.Result = condition(check.Value);
+            if (check.Result != false)
+                check.Result = check.Result = condition(check.Value);
+
             return check;
         }
 
         public static Check<T> MeetsCondition<T>(this Check<T> check, Func<T, bool> condition) where T : class
         {
-            try
+            if (check.Result != false)
             {
-                check.Result = check.Result = condition(check.Value);
-            }
-            catch (NullReferenceException ex)
-            {
-                if (condition(null))
-                    check.Result = true;
-                else
-                    check.Result = false;
+                try
+                {
+                    check.Result = check.Result = condition(check.Value);
+                }
+                catch (NullReferenceException ex)
+                {
+                    if (condition(null))
+                        check.Result = true;
+                    else
+                        check.Result = false;
+                }
             }
 
             return check;
