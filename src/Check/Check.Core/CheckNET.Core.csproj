@@ -7,8 +7,8 @@
     <ProjectGuid>{B70EA662-6977-4840-89E6-1BCCCB340168}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Check.Core</RootNamespace>
-    <AssemblyName>Check.Core</AssemblyName>
+    <RootNamespace>CheckNET.Core</RootNamespace>
+    <AssemblyName>CheckNET.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

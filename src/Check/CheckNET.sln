@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checker.Core", "Check.Core\Checker.Core.csproj", "{B70EA662-6977-4840-89E6-1BCCCB340168}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckNET.Core", "Check.Core\CheckNET.Core.csproj", "{B70EA662-6977-4840-89E6-1BCCCB340168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checker.Tests", "..\..\test\Check.Tests\Checker.Tests.csproj", "{5D4F92DE-0213-40F0-A1D9-B7D2C4DE2B52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckNET.Tests", "..\..\test\Check.Tests\CheckNET.Tests.csproj", "{5D4F92DE-0213-40F0-A1D9-B7D2C4DE2B52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
