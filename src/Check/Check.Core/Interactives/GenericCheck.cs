@@ -25,7 +25,7 @@ namespace CheckNET.Core.Interactives
     {
         internal T Value { get; set; }
         internal Type TypeOfT { get; set; }
-        internal bool Result { get; set; }
+        public bool Result { get; set; }
         public T And => Value;
 
         internal Check(T val)
@@ -38,6 +38,11 @@ namespace CheckNET.Core.Interactives
         {
             Value = val;
             Result = res;
+        }
+
+        public static implicit operator bool(Check<T> check)
+        {
+            return check.Result;
         }
     }
 }

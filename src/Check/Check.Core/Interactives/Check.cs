@@ -22,6 +22,11 @@ namespace CheckNET.Core.Interactives
             }
         }
 
+        public static T Argument<T>(Check<T> arg)
+        {
+            return arg.Value;
+        }
+
         private static TestFramework GetFrameworkInUse<T>(Check<T> val)
         {
             var nunitAttribute = new StackFrame(2).GetMethod().CustomAttributes.Where(a => a.AttributeType.FullName.Contains("NUnit")).FirstOrDefault();

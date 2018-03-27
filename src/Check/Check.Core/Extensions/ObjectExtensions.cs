@@ -18,7 +18,12 @@ namespace CheckNET.Core.Extensions
 
         public static Check<T> IsNull<T>(this T val)
         {
-            return val != null ? throw new ArgumentException() : new Check<T>(val, true);
+            var value = (object)"IsNull" ?? (object)val;
+
+            if (value == "IsNull")
+                throw new ArgumentException();
+
+            return new Check<T>((T)value, true);
         }
     }
 }
