@@ -31,11 +31,15 @@ Find the NuGet package in the PackageManager or install via console using.
 
 Then just replace your asserts with `Check.That(conditions...)`
 
+# Supported Unit Testing Frameworks
+Current supports NUnit only but is easily expandable to ANY other Test Framework out. Plans are to implement XUnit and MSTest support soon.
+
 # Not Just Asserts
 The other benefit of this library is that these Checks can be used method arguments for null checking and throwing exceptions. Just use the Check.Argument() method.
 ```
 public void MyMethod(string MyArgument)
 {
+	// Will throw ArgumentNull Exception for you!
 	Check.Argument(myArgument.IsNotNull());
 }
 ```
