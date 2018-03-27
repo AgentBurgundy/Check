@@ -19,13 +19,26 @@ to
 
 var myString = "Hello World"
 
-Assert.That(Check.IsNotNull(myString).MeetsCondition(s => s.Contains("World")));
+Check.That(myString.IsNotNull().And.Contains(new string[]{ "World" })));
 ```
+
+Currently Check.NET only supports NUnit but is extremely expandable to work with any Unit Testing Framework that exists.
 
 # How To Use
 Find the NuGet package in the PackageManager or install via console using.
 
 `Install-Package CheckNET.Core`
+
+Then just replace your asserts with `Check.That(conditions...)`
+
+# Not Just Asserts
+The other benefit of this library is that these Checks can be used method arguments for null checking and throwing exceptions. Just use the Check.Argument() method.
+```
+public void MyMethod(string MyArgument)
+{
+	Check.Argument(myArgument.IsNotNull());
+}
+```
 
 # How To Contribute
 All issues are up for grabs, I plan to update this package to the best of my ability.
