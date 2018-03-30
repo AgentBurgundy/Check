@@ -19,7 +19,7 @@ to
 
 var myString = "Hello World"
 
-Check.That(myString.IsNotNullOrEmpty().And.Contains(new string[]{ "World" })));
+Check.That(myString.IsNotNullOrEmpty().And.ContainsThese(new string[]{ "World" })));
 ```
 
 Currently Check.NET only supports NUnit but is extremely expandable to work with any Unit Testing Framework that exists.
@@ -30,6 +30,9 @@ Find the NuGet package in the PackageManager or install via console using.
 `Install-Package CheckNET.Core`
 
 Then just replace your asserts with `Check.That(conditions...)`
+
+# Documentation WIP
+[Documentation](https://github.com/AgentBurgundy/Check.NET/blob/master/DOCUMENTATION.md)
 
 # Supported Unit Testing Frameworks
 Currently Check.NET supports NUnit only but is easily expandable to ANY other Test Framework out. Plans are to implement XUnit and MSTest support soon.
