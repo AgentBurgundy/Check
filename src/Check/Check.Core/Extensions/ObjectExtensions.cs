@@ -25,5 +25,13 @@ namespace CheckNET.Core.Extensions
 
             return new Check<T>((T)value, true);
         }
+
+        public static Check<T> IsEqual<T>(this T val, T otherVal)
+        {
+            var value = (object)val ?? throw new ArgumentNullException();
+            var other = (object)otherVal ?? throw new ArgumentNullException();
+
+            return value.Equals(other) ? new Check<T>((T)value, true) : throw new ArgumentException();
+        }
     }
 }

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgumentNullTests.cs" />
+    <Compile Include="IntTests.cs" />
+    <Compile Include="ObjectTests.cs" />
     <Compile Include="StringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
