@@ -19,7 +19,7 @@ to
 
 var myString = "Hello World"
 
-Check.That(myString.IsNotNull().And.Contains(new string[]{ "World" })));
+Check.That(myString.IsNotNullOrEmpty().And.Contains(new string[]{ "World" })));
 ```
 
 Currently Check.NET only supports NUnit but is extremely expandable to work with any Unit Testing Framework that exists.
