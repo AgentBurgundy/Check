@@ -31,6 +31,8 @@ Find the NuGet package in the PackageManager or install via console using.
 
 Then just replace your asserts with `Check.That(conditions...)`
 
+Or visit the NuGet Package here [https://www.nuget.org/packages/CheckNET.Core/](https://www.nuget.org/packages/CheckNET.Core/)
+
 # Documentation WIP
 [Documentation](https://github.com/AgentBurgundy/Check.NET/blob/master/DOCUMENTATION.md)
 
