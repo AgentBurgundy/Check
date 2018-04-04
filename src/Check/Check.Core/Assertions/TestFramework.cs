@@ -9,6 +9,7 @@ namespace CheckNET.Core.Assertions
     public enum TestFramework
     {
         NoFramework,
-        NUnit        
+        NUnit,
+        Xunit
     }
 }

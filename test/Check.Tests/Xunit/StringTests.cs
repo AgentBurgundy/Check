@@ -1,51 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using CheckNET.Core;
-using CheckNET.Core.Extensions;
+﻿using CheckNET.Core.Extensions;
 using CheckNET.Core.Interactives;
+using Xunit;
 
-namespace CheckNET.Tests
+namespace CheckNET.Tests.Xunit
 {
-    [TestFixture]
     public class StringTests
     {
-        [Test]
-        [TestCase("1")]
-        [TestCase("Hello")]
-        [TestCase("!Hello1")]
-        [TestCase("!!$@#*U")]
+        [Theory]
+        [InlineData("1")]
+        [InlineData("Hello")]
+        [InlineData("!Hello1")]
+        [InlineData("!!$@#*U")]
         public void Check_IsNotNullOrEmpty(string testString)
         {
             Check.That(testString.IsNotNullOrEmpty());
         }
 
-        [Test]
-        [TestCase("1")]
-        [TestCase("Hello")]
-        [TestCase("!Hello1")]
-        [TestCase("")]
+        [Theory]
+        [InlineData("1")]
+        [InlineData("Hello")]
+        [InlineData("!Hello1")]
+        [InlineData("")]
         public void Check_IsNotNull(string testString)
         {
             Check.That(testString.IsNotNull());
         }
 
-        [Test]
-        [TestCase("Hello")]
-        [TestCase("!Hello1")]
-        [TestCase("!!$@#*U")]
+        [Theory]
+        [InlineData("Hello")]
+        [InlineData("!Hello1")]
+        [InlineData("!!$@#*U")]
         public void Check_IsNotEmpty(string testString)
         {
             Check.That(testString.IsNotEmpty());
         }
 
-        [Test]
-        [TestCase("Hello!")]
-        [TestCase("!Hello1")]
-        [TestCase("!!$H@#*U")]
+        [Theory]
+        [InlineData("Hello!")]
+        [InlineData("!Hello1")]
+        [InlineData("!!$H@#*U")]
         public void Check_Contains(string testString)
         {
             string[] commonStrings = new string[] { "!", "H" };
@@ -53,10 +46,10 @@ namespace CheckNET.Tests
             Check.That(testString.ContainsThese(commonStrings));
         }
 
-        [Test]
-        [TestCase("Hello!")]
-        [TestCase("!Hello1")]
-        [TestCase("!!$H@#*U")]
+        [Theory]
+        [InlineData("Hello!")]
+        [InlineData("!Hello1")]
+        [InlineData("!!$H@#*U")]
         public void Check_MeetsCondition(string testString)
         {
             string[] commonStrings = new string[] { "!", "H" };
