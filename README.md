@@ -31,11 +31,13 @@ Find the NuGet package in the PackageManager or install via console using.
 
 Then just replace your asserts with `Check.That(conditions...)`
 
+Or visit the NuGet Package here [https://www.nuget.org/packages/CheckNET.Core/](https://www.nuget.org/packages/CheckNET.Core/)
+
 # Documentation WIP
 [Documentation](https://github.com/AgentBurgundy/Check.NET/blob/master/DOCUMENTATION.md)
 
 # Supported Unit Testing Frameworks
-Currently Check.NET supports NUnit only but is easily expandable to ANY other Test Framework out. Plans are to implement XUnit and MSTest support soon.
+Currently Check.NET supports NUnit and xunit only but is easily expandable to ANY other Test Framework out.
 
 # Not Just Asserts
 The other benefit of this library is that these Checks can be used method arguments for null checking and throwing exceptions. Just use the Check.Argument() method.

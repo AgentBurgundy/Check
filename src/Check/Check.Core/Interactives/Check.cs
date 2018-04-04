@@ -1,12 +1,7 @@
 ﻿using CheckNET.Core.Assertions;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheckNET.Core.Interactives
 {
@@ -18,7 +13,11 @@ namespace CheckNET.Core.Interactives
 
             if (framework == TestFramework.NUnit)
             {
-                Assert.That(val.Result);
+                NUnit.Framework.Assert.That(val.Result);
+            }
+            else if (framework == TestFramework.Xunit)
+            {
+                Xunit.Assert.True(val.Result);
             }
         }
 
@@ -30,10 +29,15 @@ namespace CheckNET.Core.Interactives
         private static TestFramework GetFrameworkInUse<T>(Check<T> val)
         {
             var nunitAttribute = new StackFrame(2).GetMethod().CustomAttributes.Where(a => a.AttributeType.FullName.Contains("NUnit")).FirstOrDefault();
+            var xunitAttribute = new StackFrame(2).GetMethod().CustomAttributes.Where(a => a.AttributeType.FullName.Contains("Xunit")).FirstOrDefault();
 
             if (nunitAttribute != default(CustomAttributeData))
             {
                 return TestFramework.NUnit;
+            }
+            else if (xunitAttribute != default(CustomAttributeData))
+            {
+                return TestFramework.Xunit;
             }
             else return TestFramework.NoFramework;
         }

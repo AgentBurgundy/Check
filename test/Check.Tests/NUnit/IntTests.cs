@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CheckNET.Tests
+namespace CheckNET.Tests.NUnit
 {
     [TestFixture]
     public class IntTests
