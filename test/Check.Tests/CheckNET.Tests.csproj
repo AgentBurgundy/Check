@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NUnit\ArgumentNullTests.cs" />
+    <Compile Include="NUnit\FloatTests.cs" />
     <Compile Include="NUnit\IntTests.cs" />
     <Compile Include="NUnit\ObjectTests.cs" />
     <Compile Include="NUnit\StringTests.cs" />
