@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assertions\TestFramework.cs" />
+    <Compile Include="Extensions\FloatExtensions.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\NullableIntExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />

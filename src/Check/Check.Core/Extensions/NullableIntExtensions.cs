@@ -19,5 +19,15 @@ namespace CheckNET.Core.Extensions
 
             return new Check<int?>(val, true);
         }
+
+        public static Check<int?> IsDivisbleBy(this int? val, int divisor)
+        {
+            var checkedValue = val ?? throw new ArgumentNullException("Cannot evaluate IsDivisibleBy() with a null int value.-");
+
+            if (val % divisor > 0)
+                throw new ArgumentException($"Value {val} is not divisible by {divisor}.");
+
+            return new Check<int?>(val, true);
+        }
     }
 }
