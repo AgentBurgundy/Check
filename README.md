@@ -1,3 +1,4 @@
+![](https://raw.githubusercontent.com/AgentBurgundy/Check.NET/master/images/checknet.png)
 # Check.NET
 An open source library for null checking and value checking classes and structs in C#.
 
